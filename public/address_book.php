@@ -4,44 +4,56 @@ $address_book = [];
 $new_address = [];
 $filename = "address_book.csv";
 
-// Reading my CSV file
-function read_csv($filename)
+// creating the class with funcitons and attributes inside
+class AddressDataStore 
 {
-	$entries = [];
-	$handle = fopen($filename, 'r');
-	while(!feof($handle))
-	{
-		$row = fgetcsv($handle);
-		if(is_array($row))
-		{
-			$entries[] = $row;
-		}
-	}
-	fclose($handle);
-	return $entries;
-}
+    public $filename = '';
 
-$address_book = read_csv($filename);
-
-// Write CSV function
-function write_csv($array, $filename) 
-{
-    if (is_writable($filename)) 
+    public function read_address_book()
     {
-        $handle = fopen($filename, "w");
-        foreach ($array as $fields) 
-        {
-            fputcsv($handle, $fields);
-        }
-        fclose($handle);
+        // Code to read file $this->filename
+        $entries = [];
+		$handle = fopen($this->filename, 'r');
+		while(!feof($handle))
+		{
+			$row = fgetcsv($handle);
+			if(is_array($row))
+			{
+				$entries[] = $row;
+			}
+		}
+		fclose($handle);
+		return $entries;
+	    }
+
+    public function write_address_book($array) 
+    {
+        // Code to write $addresses_array to file $this->filename
+        if (is_writable($this->filename)) 
+	    {
+	        $handle = fopen($this->filename, "w");
+	        foreach ($array as $fields) 
+	        {
+	            fputcsv($handle, $fields);
+	        }
+	        fclose($handle);
+	    }
     }
+
 }
 
+// $address_book = read_csv($filename);
+$addStore = new AddressDataStore();
+$addStore->filename = 'address_book.csv';
+$address_book = $addStore->read_address_book();
+
+// this removes a selected item
 if(isset($_GET['remove_item'])) 
 {
-
 	unset($address_book[$_GET['remove_item']]);
-	write_csv($address_book, $filename); 
+	$ads1 = new AddressDataStore();
+	$ads1->filename = "address_book.csv";
+	$ads1->write_address_book($address_book);
 	header('address_book.php');
 }
 
@@ -57,7 +69,9 @@ if (!empty($_POST['name']) && !empty($_POST['address']) && !empty($_POST['city']
 
     array_push($address_book, $new_address);
     
-    write_csv($address_book, $filename);    
+    $ads2 = new AddressDataStore();
+	$ads2->filename = "address_book.csv";
+	$ads2->write_address_book($address_book);    
 } 
 else 
 {
@@ -66,8 +80,10 @@ else
         if (empty($value)) 
         {
         	array_push($address_book, $new_address);
-		    write_csv($address_book, $filename); 
-            echo "<h1>" . ucfirst($key) .  " is empty.</h1>";
+		    $ads3 = new AddressDataStore();
+			$ads3->filename = "address_book.csv";
+			$ads3->write_address_book($address_book); 
+            echo "<h3>" . ucfirst($key) .  " is empty.</h3>";
         }
     }
 }
@@ -103,10 +119,9 @@ else
 	        <label for="phone">Phone</label>
 	        <input id="phone" name="phone" type="text" placeholder="Your phone">
 
-
-
 	        <input type="submit" value="Submit">
 	</form>
+	<br>
 	<br>
 	<table border="1">
         <tr>
@@ -129,9 +144,4 @@ else
     </table>
 </body>
 </html>
-
-	
-
-
-
 
