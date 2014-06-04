@@ -9,9 +9,14 @@ class AddressDataStore
 {
     public $filename = '';
 
+    public function __construct($filename = "address_book.csv")
+	{
+		$this->filename = $filename;
+	}
+
+	// function that allows you to read the saved file
     public function read_address_book()
     {
-        // Code to read file $this->filename
         $entries = [];
 		$handle = fopen($this->filename, 'r');
 		while(!feof($handle))
@@ -25,10 +30,9 @@ class AddressDataStore
 		fclose($handle);
 		return $entries;
 	    }
-
+	// function that allows you to write to a file
     public function write_address_book($array) 
     {
-        // Code to write $addresses_array to file $this->filename
         if (is_writable($this->filename)) 
 	    {
 	        $handle = fopen($this->filename, "w");
@@ -40,12 +44,16 @@ class AddressDataStore
 	    }
     }
 
+    public function __destruct()
+    {
+    	echo "Class Dismissed!\n";
+    }
+
 }
 
 // $address_book = read_csv($filename);
-$addStore = new AddressDataStore();
-$addStore->filename = 'address_book.csv';
-$address_book = $addStore->read_address_book();
+$adsRead = new AddressDataStore();
+$address_book = $adsRead->read_address_book();
 
 // this removes a selected item
 if(isset($_GET['remove_item'])) 
@@ -68,10 +76,8 @@ if (!empty($_POST['name']) && !empty($_POST['address']) && !empty($_POST['city']
     $new_address['phone'] = $_POST['phone'];
 
     array_push($address_book, $new_address);
-    
-    $ads2 = new AddressDataStore();
-	$ads2->filename = "address_book.csv";
-	$ads2->write_address_book($address_book);    
+
+	$ads->write_address_book($address_book);    
 } 
 else 
 {
@@ -80,14 +86,13 @@ else
         if (empty($value)) 
         {
         	array_push($address_book, $new_address);
-		    $ads3 = new AddressDataStore();
-			$ads3->filename = "address_book.csv";
-			$ads3->write_address_book($address_book); 
+			$ads->write_address_book($address_book); 
             echo "<h3>" . ucfirst($key) .  " is empty.</h3>";
         }
     }
 }
 
+// unset($ads); 
 ?>
 
 <!DOCTYPE html>
