@@ -16,41 +16,101 @@
     <h2 id="sub-header">Hello Again.</h2>
     <p class="sub-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
+    <button id='btn1'>Button 1</button>
+    <button id='btn2'>Button 2</button>
+    <button id='btn3'>Button 3</button>
+    <button id='btn4'>Button 4</button>
+    <button id='btn5'>Button 5</button>
+    
     <script>
+
+//                            BUTTON 1
+//                             BELOW
+//////////////////////////////////////////////////////////////////////////
 
         // todo: get the main header element by id
         var mainHeader = document.getElementById('main-header');
-
         // todo: set inner html of mainHeader to "JavaScript is Cool"
-        mainHeader.innerHTML = 'JavaScript is Cool';
+        var changeText = function() {
+            mainHeader.innerHTML = 'JavaScript is Cool';
+        }
+        //link button to btn1
+        var btn1 = document.getElementById('btn1');
+        btn1.addEventListener('click', changeText, false);
+
+
+//                            BUTTON 2
+//                             BELOW
+//////////////////////////////////////////////////////////////////////////
 
         // todo: get the sub header element by id
         var subHeader = document.getElementById('sub-header');
+         // todo: set the text color of subHeader to blue
+        var changeColor = function() {    
+            subHeader.style['color'] = 'blue';
+        }
+        //link button to h2
+        var btn2 = document.getElementById('btn2');
+        btn2.addEventListener('click',changeColor, false);
 
-        // todo: set the text color of subHeader to blue
-        subHeader.style['color'] = 'blue';
+
+//                            BUTTON 3
+//                             BELOW
+//////////////////////////////////////////////////////////////////////////
 
         // todo: get all list items
         var listItems = document.getElementsByTagName('li');
 
         // todo: set text color on every other list item to grey
-        // todo: set text color of li with dbid = 1 to blue
-        for (var i = 0; i <= listItems.length; i += 2) {
-            listItems[i].style['background-color'] = '#aaa';
-            if(listItems[i].attributes['data-dbid'].value == '1') {
-                listItems[i].style['color'] = 'blue';
+        var tableStriped = function() {
+            for (var i = 0; i < listItems.length; i++) {
+                if((listItems[i].attributes['data-dbid'].value % 2) == 0) {
+                    listItems[i].style['color'] = 'grey';
+                }
             }
         };
+        //link button to table elements
+        var btn3 = document.getElementById('btn3');
+        btn3.addEventListener('click',tableStriped,false);
 
-        // listItems[0].style['color'] = 'blue';
+
+//                            BUTTON 4
+//                             BELOW
+//////////////////////////////////////////////////////////////////////////
+
+        // todo: set text color of li with dbid = 1 to blue
+        var makeBlue = function() {
+            for (var i = 0; i < listItems.length; i++) {
+                if(listItems[i].attributes['data-dbid'].value == '1') {
+                    listItems[i].style['color'] = 'blue';
+                }
+            }
+        };
+        //link button to table element with dbid blue
+        var btn4 = document.getElementById('btn4');
+        btn4.addEventListener('click',makeBlue,false);
+
+
+//                            BUTTON 5
+//                             BELOW
+//////////////////////////////////////////////////////////////////////////
 
         // todo: get all elements with class name sub-paragraph
         var subParagraphs = document.getElementsByClassName('sub-paragraph');
-
         // todo: change the text in the first sub paragraph to "Mission Accomplished!"
-        subParagraphs[0].innerHTML = "Mission Accomplished!"
+        var missionAccomplished = function() { 
+            subParagraphs[0].innerHTML = "Mission Accomplished!";
+        }
+
+        var btn5 = document.getElementById('btn5');
+        btn5.addEventListener('click',missionAccomplished,false);
 
     </script>
 
 </body>
 </html>
+
+
+
+
+
