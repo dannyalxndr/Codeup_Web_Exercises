@@ -1,0 +1,62 @@
+<html>
+<head>
+	<title>JSON</title>
+
+	<script>
+
+	var books = [
+		{
+			"title": "The Universe",
+			"author": {
+				"firstName": "Tyler",
+				"lastName": "Kent"
+			}
+		},
+		{
+			"title": "Unloved Love",
+			"author": {
+				"firstName": "Robby",
+				"lastName": "Drake"
+			}
+		},
+		{
+			"title": "I Am America, And So Can You.",
+			"author": {
+				"firstName": "Steven",
+				"lastName": "Colbert"
+			}
+		},
+		{
+			"title": "Steptember",
+			"author": {
+				"firstName": "Victor",
+				"lastName": "Ricktor"
+			}
+		},
+		{
+			"title": "Under The Jungle",
+			"author": {
+				"firstName": "Jude",
+				"lastName": "Brooks"
+			}
+		}
+	];
+
+	//log out array
+	console.log(books);
+
+	books.forEach(function (book, index) {
+
+		console.log("Book #" + (index + 1));
+	    console.log("Title: " + book.title);
+	    console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+	    console.log("---");
+	});
+
+	</script>
+
+</head>
+<body>
+
+</body>
+</html>
