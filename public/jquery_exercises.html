@@ -1,56 +1,72 @@
 <html>
 <head>
-
-	<title>jQuery Exercises</title>
-
+    <title>Exampe jQuery Page</title>
 </head>
 <body>
 
-<!-- 
-Create content in your HTML file using at least the following elements: h1, p, ul, li, div.
+    <h1 class="codeup special">Example Page</h1>
 
-Add several attributes to your elements; you will need both id and class attributes.
+    <div class="important">
+        <h3>NOTICE</h3>
 
-Use jQuery to select an element by the id. Alert the contents of the element.
+        <p>This is an important message!</p>
+    </div>
 
-Update the jQuery code to select and alert a different id.
+    <div class="not-important">
+        <h2 class="codeup">Lorem Ipsum</h2>
 
-Use the same id on 2 elements. How does this change the jQuery selection?
+        <p class="special">Lorem ipsum dolor sit amet, incididunt ut <em>labore et dolore magna aliqua.</em>, quis ut aliquip ex ea commodo.</p>
+    </div>
 
-Remove the duplicate id. Each id should be unique on that page. -->
+    <h2>Important Paragraph</h2>
 
+    <p class="important special">
+        This is also very important. So read it, because I will not repeat myself.
+    </p>
 
-	<h1 class="headers" id="mainHeader">jQuery Exercises</h1>
+    <h2 class="codeup">List Items</h2>
 
-	<div>
-		<p>Below is a list of <span>random stuff</span> because i don't know what to list off for you... enjoy :)</p>
-	</div>
+    <ul id="container">
+    	<li id="itm1">one</li>
+    	<li id="itm2">two</li>
+    	<li id="itm3">three</li>
+    </ul>	
 
-	<h2 class="headers" id="subHeader">List</h2>
+    <script src="/js/jquery.js"></script>
 
-	<div id="container">
-		<ul >
-			<div id="itm1">
-				<li>pickles</li>
-			</div>
-			<div id="itm2">
-				<li>foot</li>
-			</div>
-			<div id="itm3">
-				<li>dragon</li>
-			</div>
-		</ul>
-	</div>
+    <script>
 
-	<script src="/js/jQuery.js"></script>
-	<script>
+		// changing header to blue on click
+    	$('h1').click(function () {
 
-		console.log($('#mainHeader').html('This is my jQuery Exercise'));
+			$(this).css('color', 'blue');
 
-	</script>
+		});
+
+    	// changing p font size on dbl click
+		$('p').dblclick(function () {
+
+			$(this).css('font-size', '18px');
+
+		});
+
+		// changing li values to one color on hoverIn function, then back on hoverOut
+		var hoverIn = function () {
+			$(this).css('color', 'red');
+			};
+
+		var hoverOut = function () {
+			$(this).css('color', 'black');
+			};
+
+		$('li').hover(hoverIn, hoverOut);
+
+    </script>
 
 </body>
 </html>
+
+
 
 
 
