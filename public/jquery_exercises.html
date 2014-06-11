@@ -1,15 +1,57 @@
 <html>
 <head>
+
 	<title>jQuery Exercises</title>
-	<script src="/js/jQuery.js"></script>
-	<script>
-		$(document).ready(function() {
-    		alert( 'The DOM has finished loading!' );
-		});
-	</script>
 
 </head>
 <body>
 
+<!-- 
+Create content in your HTML file using at least the following elements: h1, p, ul, li, div.
+
+Add several attributes to your elements; you will need both id and class attributes.
+
+Use jQuery to select an element by the id. Alert the contents of the element.
+
+Update the jQuery code to select and alert a different id.
+
+Use the same id on 2 elements. How does this change the jQuery selection?
+
+Remove the duplicate id. Each id should be unique on that page. -->
+
+
+	<h1 class="headers" id="mainHeader">jQuery Exercises</h1>
+
+	<div>
+		<p>Below is a list of <span>random stuff</span> because i don't know what to list off for you... enjoy :)</p>
+	</div>
+
+	<h2 class="headers" id="subHeader">List</h2>
+
+	<div id="container">
+		<ul >
+			<div id="itm1">
+				<li>pickles</li>
+			</div>
+			<div id="itm2">
+				<li>foot</li>
+			</div>
+			<div id="itm3">
+				<li>dragon</li>
+			</div>
+		</ul>
+	</div>
+
+	<script src="/js/jQuery.js"></script>
+	<script>
+
+		console.log($('#mainHeader').html('This is my jQuery Exercise'));
+
+	</script>
+
 </body>
 </html>
+
+
+
+
