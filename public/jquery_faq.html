@@ -14,27 +14,37 @@
 	  	visibility: hidden;
 	  	opacity: 0;
 	  	transition: visibility 0s .5s, opacity .5s linear;
+
 	}
 	#topLink {
-		color: #151715;
-		font-size: 19px;
+		color: #000;
+		font-size: 25px;
+		border: 1px solid black;
+		background-color: #4A4A59;
+		padding: 5px;
 	}
 	h1 {
 		color: #000;
 		text-decoration: underline;
-		font-size: 40px;
+		font-size: 45px;
 		text-align: center;
 	}
 	h2 {
 		color: #151715;
-		font-size: 30px;
+		font-size: 35px;
 		margin-bottom: 0;
+	}
+	h3 {
+		font-size: 24px;
+	}
+	li {
+		font-size: 18px;
 	}
 	body {
 		background-color: #798279;
 	}
 	dd {
-		color: #24242B;
+		color: #000;
 		font-size: 19px;
 	}
 	dt {
@@ -44,82 +54,176 @@
 
 	</style>
 
-    <script src="/js/jquery.js"></script>
-    <script>
-        $('document').ready(function() {
-            $('#toggleInvisible').click(function(event) {
-                event.preventDefault();
-                $('dd').toggleClass('hidden');
-            });
-        });
-    </script>
-
 </head>
 <body>
-
-	<!-- In a HTML structure, create a definition list containing 10 FAQs about national parks.
-
-	Add a class to all dd elements named invisible.
-
-	Create CSS that sets elements with the invisible class to display: none.
-
-	Update the page with jQuery to add a link that toggles the class invisible on and off for all dd elements. -->
+<!--  ..... .... ... .. . .. ... .... ..... .... ... .. . .. ... .... ..... 	-->
+<!--  ..... .... ... .. . .. ... .... ..... .... ... .. . .. ... .... ..... 	-->
+<!-- 							  THE FAQ's 					         	    -->
 
 	<a id="Top"></a>
 	<h1>National Park FAQ's</h1>
 	<button href="#" id="toggleInvisible">Click to hide/display the information.</button>
-
+		<!--  ..... .... ... .. . .. ... .... ..... .... ... .. . .. ... .... ..... 	-->
 	<div>
 	<h2>Acadia</h2>
 	
 		<dt>This is where the question goes?</dt>
-		<dd class="visible hidden">Covering most of Mount Desert Island and other coastal islands, Acadia features the tallest mountain on the Atlantic coast of the United States, granite peaks, ocean shoreline, woodlands, and lakes. There are freshwater, estuary, forest, and intertidal habitats</dd>
+		<dd>Covering most of Mount Desert Island and other coastal islands, Acadia features the tallest mountain on the Atlantic coast of the United States, granite peaks, ocean shoreline, woodlands, and lakes. There are freshwater, estuary, forest, and intertidal habitats</dd>
 	</div>
+		<!--  ..... .... ... .. . .. ... .... ..... .... ... .. . .. ... .... ..... 	-->
 	<div>
 	<h2>American Samoa</h2>
 		<dt>This is where the question goes?</dt>
-		<dd class="visible hidden">The southernmost national park is on three Samoan islands and protects coral reefs, rainforests, volcanic mountains, and white beaches. The area is also home to flying foxes, brown boobies, sea turtles, and 900 species of fish.</dd>
+		<dd>The southernmost national park is on three Samoan islands and protects coral reefs, rainforests, volcanic mountains, and white beaches. The area is also home to flying foxes, brown boobies, sea turtles, and 900 species of fish.</dd>
 	</div>
+		<!--  ..... .... ... .. . .. ... .... ..... .... ... .. . .. ... .... ..... 	-->
 	<div>
 	<h2>Arches</h2>
 		<dt>This is where the question goes?</dt>
-		<dd class="visible hidden">This site features more than 2,000 natural sandstone arches, including the famous Delicate Arch. In a desert climate, millions of years of erosion have led to these structures, and the arid ground has life-sustaining soil crust and potholes, which serve as natural water-collecting basins. Other geologic formations are stone columns, spires, fins, and towers.</dd>
+		<dd>This site features more than 2,000 natural sandstone arches, including the famous Delicate Arch. In a desert climate, millions of years of erosion have led to these structures, and the arid ground has life-sustaining soil crust and potholes, which serve as natural water-collecting basins. Other geologic formations are stone columns, spires, fins, and towers.</dd>
 	</div>
+		<!--  ..... .... ... .. . .. ... .... ..... .... ... .. . .. ... .... ..... 	-->
 	<div>
 	<h2>Badlands</h2>
 		<dt>This is where the question goes?</dt>
-		<dd class="visible hidden">The Badlands are a collection of buttes, pinnacles, spires, and grass prairies. It has the world's richest fossil beds from the Oligocene epoch, and the wildlife includes bison, bighorn sheep, black-footed ferrets, and swift foxes.</dd>
+		<dd>The Badlands are a collection of buttes, pinnacles, spires, and grass prairies. It has the world's richest fossil beds from the Oligocene epoch, and the wildlife includes bison, bighorn sheep, black-footed ferrets, and swift foxes.</dd>
 	</div>
+		<!--  ..... .... ... .. . .. ... .... ..... .... ... .. . .. ... .... ..... 	-->
 	<div>
 	<h2>Big Bend</h2>
 		<dt>This is where the question goes?</dt>
-		<dd class="visible hidden">Named for the prominent bend in the Rio Grande along the US–Mexico border, this park encompasses a large and remote part of the Chihuahuan Desert. Its main attraction is backcountry recreation in the arid Chisos Mountains and in canyons along the river. A wide variety of Cretaceous and Tertiary fossils as well as cultural artifacts of Native Americans also exist within its borders.</dd>
+		<dd>Named for the prominent bend in the Rio Grande along the US–Mexico border, this park encompasses a large and remote part of the Chihuahuan Desert. Its main attraction is backcountry recreation in the arid Chisos Mountains and in canyons along the river. A wide variety of Cretaceous and Tertiary fossils as well as cultural artifacts of Native Americans also exist within its borders.</dd>
 	</div>
+		<!--  ..... .... ... .. . .. ... .... ..... .... ... .. . .. ... .... ..... 	-->
 	<div>
 	<h2>Biscayne</h2>
 		<dt>This is where the question goes?</dt>
-		<dd class="visible hidden">Located in Biscayne Bay, this park at the north end of the Florida Keys has four interrelated marine ecosystems: mangrove forest, the Bay, the Keys, and coral reefs. Threatened animals include the West Indian Manatee, American crocodile, various sea turtles, and peregrine falcon.</dd>
+		<dd>Located in Biscayne Bay, this park at the north end of the Florida Keys has four interrelated marine ecosystems: mangrove forest, the Bay, the Keys, and coral reefs. Threatened animals include the West Indian Manatee, American crocodile, various sea turtles, and peregrine falcon.</dd>
 	</div>
+		<!--  ..... .... ... .. . .. ... .... ..... .... ... .. . .. ... .... ..... 	-->
 	<div>
 	<h2>Black Canyon of the Gunnison</h2>
 		<dt>This is where the question goes?</dt>
-		<dd class="visible hidden">The park protects a quarter of the Gunnison River, which slices sheer canyon walls from dark Precambrian-era rock. The canyon features incredibly steep descents, and is a popular site for river rafting and rock climbing. The deep, narrow canyon, made of gneiss and schist, is often in shadow and therefore appears black.</dd>
+		<dd>The park protects a quarter of the Gunnison River, which slices sheer canyon walls from dark Precambrian-era rock. The canyon features incredibly steep descents, and is a popular site for river rafting and rock climbing. The deep, narrow canyon, made of gneiss and schist, is often in shadow and therefore appears black.</dd>
 	</div>
+		<!--  ..... .... ... .. . .. ... .... ..... .... ... .. . .. ... .... ..... 	-->
 	<div>
 	<h2>Bryce Canyon</h2>
 		<dt>This is where the question goes?</dt>
-		<dd class="visible hidden">Bryce Canyon is a giant geological amphitheater on the Paunsaugunt Plateau. The unique area has hundreds of tall sandstone hoodoos formed by erosion. The region was originally settled by Native Americans and later by Mormon pioneers.</dd>
+		<dd>Bryce Canyon is a giant geological amphitheater on the Paunsaugunt Plateau. The unique area has hundreds of tall sandstone hoodoos formed by erosion. The region was originally settled by Native Americans and later by Mormon pioneers.</dd>
 	</div>
+		<!--  ..... .... ... .. . .. ... .... ..... .... ... .. . .. ... .... ..... 	-->
 	<div>
 	<h2>Canyonlands</h2>
 		<dt>This is where the question goes?</dt>
-		<dd class="visible hidden">This landscape was eroded into a maze of canyons, buttes, and mesas by the combined efforts of the Colorado River, Green River, and their tributaries, which divide the park into three districts. There are rock pinnacles and other naturally sculpted rock formations, as well as artifacts from Ancient Pueblo peoples.</dd>
+		<dd>This landscape was eroded into a maze of canyons, buttes, and mesas by the combined efforts of the Colorado River, Green River, and their tributaries, which divide the park into three districts. There are rock pinnacles and other naturally sculpted rock formations, as well as artifacts from Ancient Pueblo peoples.</dd>
 	</div>
+	<!--  ..... .... ... .. . .. ... .... ..... .... ... .. . .. ... .... ..... 	-->
 	<div>
 	<h2>Capitol Reef</h2>
 		<dt>This is where the question goes?</dt>
-		<dd class="visible hidden">The park's Waterpocket Fold is a 100-mile (160 km) monocline that exhibits the Earth's diverse geologic layers. Other natural features are monoliths, sandstone domes, and cliffs shaped like the United States Capitol.</dd>
+		<dd>The park's Waterpocket Fold is a 100-mile (160 km) monocline that exhibits the Earth's diverse geologic layers. Other natural features are monoliths, sandstone domes, and cliffs shaped like the United States Capitol.</dd>
 	</div>
-	<p><a id="topLink" href="#Top">Top of Page</a></p>
+
+<!--  ..... .... ... .. . .. ... .... ..... .... ... .. . .. ... .... ..... 	-->
+<!--  ..... .... ... .. . .. ... .... ..... .... ... .. . .. ... .... ..... 	-->
+<!-- 							THE UNORDERED LISTS							    -->
+
+	<h3>Arches</h3>
+		<ul class="visible">
+			<li>
+				Humans have occupied the region since the last ice age 10,000 years ago.
+			</li>
+			<li>
+				Climbing on named arches within the park has long been banned by park regulations.
+			</li>
+			<li>
+				The national park lies atop an underground evaporite layer or salt bed.
+			</li>
+			<li>
+				Climbing on named arches within the park has long been banned by park regulations.
+			</li>
+		</ul>
+<!--  ..... .... ... .. . .. ... .... ..... .... ... .. . .. ... .... ..... 	-->
+	<h3>Badlands</h3>
+		<ul class="visible">
+			<li>
+				The park is managed by the National Park Service.
+			</li>
+			<li>
+				The Badlands Wilderness protects 64,144 acres (25,958 ha) of the park as a designated wilderness area.
+			</li>
+			<li>
+				Under the Mission 66 plan, the Ben Reifel Visitor Center was constructed for the monument in 1957–58.
+			</li>
+			<li>
+				For 11,000 years, Native Americans have used this area for their hunting grounds.
+			</li>
+		</ul>
+<!--  ..... .... ... .. . .. ... .... ..... .... ... .. . .. ... .... ..... 	-->
+	<h3>Canyonlands</h3>
+		<ul class="visible">
+			<li>
+				Located in southeastern Utah near the town of Moab.
+			</li>
+			<li>
+				The park is divided into four districts: the Island in the Sky, the Needles, the Maze, and the rivers themselves. 
+			</li>
+			<li>
+				 On average 440,039 people visit the park each year.
+			</li>
+			<li>
+				The Colorado River and Green River combine within the park, dividing it into four distinct districts.
+			</li>
+		</ul>	
+<!--  ..... .... ... .. . .. ... .... ..... .... ... .. . .. ... .... ..... 	-->
+<!--  ..... .... ... .. . .. ... .... ..... .... ... .. . .. ... .... ..... 	-->
+<!-- 							THE LOGIC       							    -->
+ 
+    <script src="/js/jquery.js"></script>
+
+	<script>
+		$('#toggleInvisible').click(function(event) {
+            event.preventDefault();
+            $('dd').fadeToggle();
+        });
+
+		$('ul').each(function(index) {
+    		$(this).children('li').first().css('font-weight', 'bold');
+        });
+
+        $('h3').click(function () {
+        	$(this).next().fadeToggle();
+        })
+	</script>
+
+						<!-- TOP OF PAGE LINK -->
+ 	<p><a id="topLink" href="#Top">Top of Page</a></p>
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
