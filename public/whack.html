@@ -1,0 +1,223 @@
+<html>
+<head>
+
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+	<title>Whack A Mole!</title>
+
+	<style>
+
+		img {
+		   	left: 14px;
+		   	top: -28px;
+		    clear: bottom;
+		    position: absolute;
+		    width: 180px;
+		    height: auto;
+		}
+		body {
+			background-color: #101414;
+			background: url('/img/grass_02.png') no-repeat center;
+			background-size: 100%;
+
+		}
+		div {
+			position: relative;
+		}
+		
+		h1 {
+			color: #021619;
+			position: absolute;
+			
+			left: 430px;
+			font-size: 65px;
+		}
+		div.hole {
+		    border: 2px #1E9C15;
+		    /*background-color: #1E9C15;*/
+			opacity:0.89;
+		    border-radius: 50%;
+		    width: 200px; height: 90px;
+		    margin: 2px;
+		    float: left;
+		    left: 30px;
+		}
+		#container {
+			top: 50px;
+			left: 25px;
+		}
+		#menu {
+			/*background-color: #10A2BF;*/
+			opacity:0.33;
+			float: top;
+			height: 29.8%;
+			width: 100%;
+		}
+		#counter {
+			color: #000;
+			text-decoration: bold;
+			position: absolute;
+			top: 95px;
+			left: 675px;
+			font-size: 17px;
+		}
+		#timer {
+			color: #000;
+			text-decoration: bold;
+			position: absolute;
+			top: 117px;
+			left: 675px;
+			font-size: 17px;
+		}
+
+		.btn {
+			position: absolute;
+			top: 95px;
+			left: 525px;
+		}
+		
+		.mole {
+			display:none;
+			pointer: cursor;
+		}
+	</style>
+
+</head>
+<body>
+
+	<div id="menu">
+		<h1>Whack A Mole!!</h1>
+		<button id="start" type="button" class="btn btn-default btn-lg">
+			Play Game
+		</button>
+		<div id="counter">DEAD MOLES: 0</div>
+		<div id="timer">TIME LIMIT: </div>
+	</div>
+
+	<div id="container">
+		<div class="hole" id="1">
+			<img class="mole" id="mole1" src="/img/animated_mole.gif">
+		</div>
+		<div class="hole" id="2">
+			<img class="mole" id="mole2" src="/img/animated_mole.gif">
+		</div>
+		<div class="hole" id="3">
+			<img class="mole" id="mole3" src="/img/animated_mole.gif">
+		</div>
+		<div class="hole" id="4">
+			<img class="mole" id="mole4" src="/img/animated_mole.gif">
+		</div>
+		<div class="hole" id="5">
+			<img class="mole" id="mole5" src="/img/animated_mole.gif">
+		</div>
+		<div class="hole" id="6">
+			<img class="mole" id="mole6" src="/img/animated_mole.gif">
+		</div>
+		<div class="hole" id="7">
+			<img class="mole" id="mole7" src="/img/animated_mole.gif">
+		</div>
+		<div class="hole" id="8">
+			<img class="mole" id="mole8" src="/img/animated_mole.gif">
+		</div>
+		<div class="hole" id="9">
+			<img class="mole" id="mole9" src="/img/animated_mole.gif">
+		</div>
+		<div class="hole" id="10">
+			<img class="mole" id="mole10" src="/img/animated_mole.gif">
+		</div>
+		<div class="hole" id="11">
+			<img class="mole" id="mole11" src="/img/animated_mole.gif">
+		</div>
+		<div class="hole" id="12">
+			<img class="mole" id="mole12" src="/img/animated_mole.gif">
+		</div>
+		<div class="hole" id="1">
+			<img class="mole" id="mole1" src="/img/animated_mole.gif">
+		</div>
+		<div class="hole" id="2">
+			<img class="mole" id="mole2" src="/img/animated_mole.gif">
+		</div>
+		<div class="hole" id="3">
+			<img class="mole" id="mole3" src="/img/animated_mole.gif">
+		</div>
+		<div class="hole" id="4">
+			<img class="mole" id="mole4" src="/img/animated_mole.gif">
+		</div>
+		<div class="hole" id="5">
+			<img class="mole" id="mole5" src="/img/animated_mole.gif">
+		</div>
+		<div class="hole" id="6">
+			<img class="mole" id="mole6" src="/img/animated_mole.gif">
+		</div>
+		<div class="hole" id="7">
+			<img class="mole" id="mole7" src="/img/animated_mole.gif">
+		</div>
+		<div class="hole" id="8">
+			<img class="mole" id="mole8" src="/img/animated_mole.gif">
+		</div>
+		<div class="hole" id="9">
+			<img class="mole" id="mole9" src="/img/animated_mole.gif">
+		</div>
+		<div class="hole" id="10">
+			<img class="mole" id="mole10" src="/img/animated_mole.gif">
+		</div>
+		<div class="hole" id="11">
+			<img class="mole" id="mole11" src="/img/animated_mole.gif">
+		</div>
+		<div class="hole" id="12">
+			<img class="mole" id="mole12" src="/img/animated_mole.gif">
+		</div>
+	</div>
+
+    <script src="/js/jquery.js"></script>
+
+  	<script>
+
+  		// VARIABLES
+  		var time = 30;
+		var count = 0;
+		var gameInterval;
+		var gameTime;
+		var hole = $('.hole');
+		var randomBox = 0;
+		
+		console.log(hole);
+
+		// THIS IS MY START BUTTON. CALLS BOTH FUNCTIONS BELOW.
+		$('#start').click(function(){
+			gameInterval = setInterval(action, 1500);
+			gameTime = setInterval(countdown, 1000);
+		});
+
+		function getRandomInt(min, max) {
+		  	return Math.floor(Math.random() * (max - min + 1)) + min;
+		}
+
+		// THIS IS MY ACTION FUNCTION: WHEN START BUTTON IS PRESSED.
+		var action = function(){
+			var rand = getRandomInt(1, 24);
+			var moles = $('.mole');
+			var currentMole = moles[rand - 1];
+			$(currentMole).fadeIn().delay(500).fadeOut();			
+		}
+
+		// THIS IS MY COUNTDOWN FUNCTION
+		var countdown = function(){
+			--time;
+			$('#timer').html("SEC LEFT: " + time);
+			if (time == 0){
+				clearInterval(gameInterval);
+			}
+		};
+
+		// THIS IS MY SCORE COUNTER
+		$(".hole").children().click(function() {
+    		count++;
+    		$("#counter").html("STRIKES: " + count);
+		});
+
+  	</script>
+
+
+</body>
+</html>
