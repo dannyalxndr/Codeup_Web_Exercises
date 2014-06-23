@@ -8,25 +8,23 @@ $dbc->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $stmt = $dbc->query('SELECT * FROM national_parks ORDER BY id LIMIT 4');
 
-function getParks() {
+function getOffset() {
 
-    // Bring the $dbc variable into scope somehow
-    return $dbc->query('SELECT * FROM national_parks')->fetchAll(PDO::FETCH_ASSOC);
+    $page = isset($_GET['page']) ? $_GET['page'] : 1;
 
+    return ($page - 1) * 4;
 }
 
-if ($_GET['page'] == '1') {
-	// if($_GET['next']) {
-	// 	$stmt = $dbc->query('SELECT * FROM national_parks ORDER BY id LIMIT 4 OFFSET 8');
-	// }
-	$stmt = $dbc->query('SELECT * FROM national_parks ORDER BY id LIMIT 4');
-}
-elseif ($_GET['page'] == '2') {
-	$stmt = $dbc->query('SELECT * FROM national_parks ORDER BY id LIMIT 4 OFFSET 4');
-}
-elseif ($_GET['page'] == '3') {
-	$stmt = $dbc->query('SELECT * FROM national_parks ORDER BY id LIMIT 4 OFFSET 8');
-}
+$query = 'SELECT * FROM national_parks LIMIT 4 OFFSET ' . getOffset(); 
+$parks = $dbc->query($query)->fetchAll(PDO::FETCH_ASSOC);
+
+$count = $dbc->query('SELECT count(*) FROM national_parks')->fetchColumn();
+
+$numPages = ceil($count / 4);
+
+$page = isset($_GET['page']) ? $_GET['page'] : 1;
+$nextPage = $page + 1;
+$prevPage = $page - 1;
 
  ?>
 
@@ -74,7 +72,6 @@ elseif ($_GET['page'] == '3') {
  	}
  	a {
  		font-size: 25px;
- 		color: #FF0000;
  	}
 
  	</style>
@@ -90,22 +87,32 @@ elseif ($_GET['page'] == '3') {
 				<th>Date Established</th>
 				<th>Area In Acres</th>
 			</tr>
-		<? while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) : ?>
+		<? foreach ($parks as $park) : ?> 
 		    <tr>
-		    	<td><?= $row['id'] ?></td>
-		        <td><?= $row['name'] ?></td>
-		        <td><?= $row['location'] ?></td>
-		        <td><?= $row['date_established'] ?></td>
-		        <td><?= $row['area_in_acres'] ?></td>
+		    	<td><?= $park['id'] ?></td>
+		        <td><?= $park['name'] ?></td>
+		        <td><?= $park['location'] ?></td>
+		        <td><?= $park['date_established'] ?></td>
+		        <td><?= $park['area_in_acres'] ?></td>
 		    </tr>
-		<? endwhile; ?>
+		<? endforeach; ?>
 		</table>
 
-		<div id="links">
-			<a href='?page=1'>1</a>
-			<a href='?page=2'>2</a>
-			<a href='?page=3'>3</a> 
-		</div>
+	<ul class="pager">
+		<?php if ($page == 1): ?>
+			<li class="previous disabled">
+				<a href="">&larr; Previous</a>
+			</li>
+		<? else: ?>
+			<li class="previous">
+				<a href="?page=<?= $prevPage; ?>">&larr; Previous</a>
+			</li>
+		<?php endif ?>
+
+		<li class="next">
+			<a href="?page=<?= $nextPage; ?>">Next &rarr;</a>
+		</li>		
+	</ul>
 
 	</div>
  </body>
