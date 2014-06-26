@@ -1,0 +1,65 @@
+body {
+	background-color: #878683;
+}
+table {
+	background-color: #50A8FF;
+	border: 2px solid black;
+	position: absolute;
+	width: 70%;
+	opacity:0.72;
+}
+th {
+	border: 2px solid black;
+	font-size: 18px;
+	color: #000;
+	text-align: center;
+}
+td {
+	border: 1px solid black;	
+	font-size: 18px;
+	color: #000;
+}
+#container {
+	opacity:0.7;
+}
+.removeLink {
+	color: #FF0000;
+	text-decoration: underline;
+}
+#importAddressTitle {
+	color: #000;
+	font-size: 30px;
+	margin-left: 22px;
+	margin-bottom: 20px;
+}
+#newContactTitle {
+	color: #000;
+	font-size: 30px;
+	margin-left: 22px;
+	margin-bottom: 20px;
+}
+#addressTableHeader {
+	color: #000;
+	text-align: center;
+	font-size: 30px;
+	opacity:0.7;
+}
+#mainTitle {
+	color: #FF1675;
+	text-align: center;
+	margin-top: 15px;
+	margin-bottom: 20px;
+	font-size: 60px;
+	background-image: -webkit-linear-gradient(92deg,#5079FF,#fff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+#addressInputForm {
+	margin-left: 22px;
+}
+#addressImportForm {
+	margin-left: 22px;
+}
+#newContactSubmit {
+	margin-left: 5px;
+}

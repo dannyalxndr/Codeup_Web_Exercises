@@ -1,0 +1,17 @@
+body {
+	/*background-color: #2981DE*/
+	background-image: url(/img/afterlight.jpeg);
+
+}
+#container {
+	position: relative;
+}
+
+#mainHeader {
+	color: #D92113;
+	font-size: 80px;
+	position: absolute;
+	text-align: center;
+	left: 460px;
+	top: 50px;
+}

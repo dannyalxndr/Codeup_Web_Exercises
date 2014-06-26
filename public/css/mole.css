@@ -1,0 +1,69 @@
+	h1	{
+
+		font-size:300%;
+		font-weight:bold;
+
+	}
+
+	h2 {
+
+		font-size:300%;
+		font-weight:bold;
+		display: none;
+
+	}
+
+	#pa {
+
+		display: none;
+
+	}
+
+	/*.img {
+
+		cursor: url(/img/hammer.png), auto;
+		background:url(/img/pipeline.jpg);
+		background-repeat:no-repeat;
+		background-size: 110% 150%;
+		background-attachment: fixed;
+		text-align: center
+
+	}*/
+
+
+
+	.hole {
+		position:absolute;
+
+		}
+
+	.mole-img {
+
+		display: none;
+
+	}
+
+	#moleOne {
+		left: -14%;
+		bottom: 78%;
+	}
+
+	#moleTwo {
+		left: -57%;
+		bottom: 25%;
+	}
+
+	#moleThree {
+		left: -19%;
+		bottom: 32%;
+	}
+
+	#moleFour {
+		left: 35%;
+		bottom: 35%;
+	}
+
+	#moleFive {
+		left: 80%;
+		bottom: 25%;
+	}
